@@ -1,0 +1,6 @@
+name: advanced-security-demo/java-tests
+dependencies:
+  "codeql/java-all": "0.4.3"
+  "advanced-security-demo/java-alert-suppression": "0.0.1"
+extractor: java
+tests: .
