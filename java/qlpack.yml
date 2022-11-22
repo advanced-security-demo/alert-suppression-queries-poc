@@ -1,5 +1,6 @@
 name: advanced-security-demo/java-alert-suppression
 version: 0.0.1
-libraryPathDependencies: codeql/java-all
+dependencies:
+  "codeql/java-all" : "0.4.3"
 defaultSuite:
   queries: .
