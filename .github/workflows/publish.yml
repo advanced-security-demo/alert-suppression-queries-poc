@@ -26,5 +26,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh codeql pack install ${{ matrix.pack }}
+          gh codeql pack install
           gh codeql pack publish ${{ matrix.pack }}
