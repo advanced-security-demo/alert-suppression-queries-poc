@@ -57,10 +57,14 @@ class CodeQLSuppressionComment extends LineSuppressionComment {
   CodeQLSuppressionComment() {
     exists(string all | all = this.getContents() |
       // match `codeql[...]` anywhere in the comment
-      annotation = all.regexpFind("(?i)\\bcodeql\\s*\\[[^\\]]*\\]", _, _)
+      annotation =
+        all.regexpFind("(?i)\\bcodeql\\s*\\[[^\\]]*\\]", _, _).regexpReplaceAll("^codeql", "lgtm")
       or
       // match `codeql` at the start of the comment and after semicolon
-      annotation = all.regexpFind("(?i)(?<=^|;)\\s*codeql(?!\\B|\\s*\\[)", _, _).trim()
+      annotation =
+        all.regexpFind("(?i)(?<=^|;)\\s*codeql(?!\\B|\\s*\\[)", _, _)
+            .trim()
+            .regexpReplaceAll("^codeql", "lgtm")
     )
   }
 
